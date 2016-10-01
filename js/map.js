@@ -28,7 +28,7 @@ var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/buffalobusinessfirst/citndoi0c003m2iprlhyvg4ov',
   zoom: 12,
-  center: [-78.87, 42.88]
+  center: [-79.15237, 42.286452]
 });
 
 map.on('load', function () {
