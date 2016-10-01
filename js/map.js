@@ -27,7 +27,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYnVmZmFsb2J1c2luZXNzZmlyc3QiLCJhIjoiY2l0bmRsc
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/buffalobusinessfirst/citndoi0c003m2iprlhyvg4ov',
-  zoom: 12,
+  zoom: 8,
   center: [-79.15237, 42.286452]
 });
 
