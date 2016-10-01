@@ -13,7 +13,7 @@ var propertyData = (function () {
     $.ajax({
         'async': false,
         'global': false,
-        'url': 'data/properties.geojson',
+        'url': 'http://www.chautauqualandbank.org/api',
         'dataType': "json",
         'success': function (data) {
             propertyData = data;
@@ -46,15 +46,7 @@ map.on('load', function () {
         'base': 1.75,
         'stops': [[5, 3], [12, 8], [22, 180]]
       },
-      'circle-color': {
-        property: 'Status',
-        type: 'categorical',
-        stops: [
-          ['Completed', '#ca6266'],
-          ['Under', '#009770'],
-          ['Z-Proposed', '#53578f']
-        ]
-      }
+      'circle-color': '#ca6266'
     }
   });
 });
