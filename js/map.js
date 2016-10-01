@@ -13,7 +13,7 @@ var propertyData = (function () {
     $.ajax({
         'async': false,
         'global': false,
-        'url': 'http://www.chautauqualandbank.org/api',
+        'url': 'data/properties.geojson',
         'dataType': "json",
         'success': function (data) {
             propertyData = data;
