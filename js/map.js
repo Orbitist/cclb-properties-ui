@@ -27,8 +27,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYnVmZmFsb2J1c2luZXNzZmlyc3QiLCJhIjoiY2l0bmRsc
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/buffalobusinessfirst/citndoi0c003m2iprlhyvg4ov',
-  zoom: 8,
-  center: [-79.15237, 42.286452]
+  zoom: 10,
+  center: [-79.15237, 42.286452],
+  hash: true
 });
 
 map.on('load', function () {
@@ -46,7 +47,7 @@ map.on('load', function () {
         'base': 1.75,
         'stops': [[5, 3], [12, 8], [22, 180]]
       },
-      'circle-color': '#ca6266'
+      'circle-color': '#108140'
     }
   });
 });
@@ -57,12 +58,22 @@ map.on('click', function (e) {
       return;
   }
   var feature = features[0];
+  // Construct the content
+  function popupContent () {
+    var feature = features[0];
+    var contentImage = '<a href="http://www.chautauqualandbank.org/properties/' + feature.properties.permalink + '" target="_blank"><img src="' + feature.properties.image + '" style="width:100%;"></a>';
+    var content = '<h2>' + feature.properties.name + '</h2><a class="button" href="http://www.chautauqualandbank.org/properties/' + feature.properties.permalink + '" target="_blank"><div class="orbitist-button">View Full Listing</div></a>';
+    if (feature.properties.image == 'null') {
+      return content;
+    } else {
+      return contentImage + content;
+    }
+  }
   var popup = new mapboxgl.Popup()
     .setLngLat(feature.geometry.coordinates)
-    .setHTML('<p>Project: ' + feature.properties.Project + '</p><p>Developer\/General Contractor: ' + feature.properties.Developer_General_Contractor + '</p><p>Cost: ' + feature.properties.Cost + ' Million</p><p>Status: ' + feature.properties.Status + '</p><p>Description: ' + feature.properties.Description + '</p>')
+    .setHTML(popupContent())
     .addTo(map);
   if (features.length) {
-    // Get coordinates from the symbol and center the map on those coordinates
     map.flyTo({center: features[0].geometry.coordinates});
   }
 });
