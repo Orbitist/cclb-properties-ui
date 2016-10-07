@@ -23,11 +23,17 @@ function renderMapList() {
       propertyCategoryImage = '<img src="img/future-demolitions.png" class="propertyCategoryImage" /> Future Demolition';
     }
 
+    // build the propertyValue
+    function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    var propertyValue = numberWithCommas(feature.properties.property.TotalAssessedValue);
+
     // build the listItem
     var  listItem  = '<hr><div class="map-list-item" id="' + 'property' + i + '">' + propertyImage +
     '<p>' + propertyCategoryImage + '</p>' +
     '<p><strong>' + feature.properties.name + '</strong></p>' +
-    '<p><strong>Feature: </strong> Test feature</p>' +
+    '<p><strong>Assessed Value: </strong> $' + propertyValue + '</p>' +
     '<p><strong>Feature: </strong> Test feature</p>' +
     '</div><script>document.getElementById("' + 'property' + i + '").addEventListener("click", function () {map.flyTo({center:[' + feature.geometry.coordinates + '],zoom: 18,bearing: 90 * (.5 - Math.random()),pitch: 60});});</script>';
 
