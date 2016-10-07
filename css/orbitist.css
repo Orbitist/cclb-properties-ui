@@ -142,7 +142,7 @@ html {
   width: 80px;
   padding: 10px;
 }
-.map-list-item img.propertyCategoryImage {
+img.propertyCategoryImage {
   width: 15px;
   float: left;
   padding: 0 5px 0 0;
