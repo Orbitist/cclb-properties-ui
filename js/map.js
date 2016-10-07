@@ -8,11 +8,11 @@ else {
 }
 
 // Set Url for points info API
-var pointsInfoApi = 'data/properties.geojson';
+var pointsInfoApi = 'http://www.chautauqualandbank.org/api';
 
 // Do things if in edit mode
 if (mode == 'edit'){
-  var pointsInfoApi = 'data/properties.geojson';
+  var pointsInfoApi = 'http://www.chautauqualandbank.org/api';
 }
 
 
@@ -137,17 +137,19 @@ map.on('click', function (e) {
     propertyImage = '<img src="' + feature.properties.image + '" class="popup-top-image">';
   }
 
+  var propertyFeaturesList = '<p><strong>Current Owner:</strong> ' + feature.properties.property.LotSize + '<br>' +
+  '<strong>Total Assessed Value:</strong> $' + feature.properties.category + '<br>' +
+  '<strong>Feature:</strong> ' + feature.properties.category + '<br>' +
+  '<strong>Feature:</strong> ' + feature.properties.category + '<br>' +
+  '<strong>Feature:</strong> ' + feature.properties.category + '<br>' +
+  '<strong>Feature:</strong> ' + feature.properties.category + '<br>' +
+  '<strong>Feature:</strong> ' + feature.properties.category + '</p>';
+
   var popup = new mapboxgl.Popup({anchor: 'none'})
     .setLngLat(feature.geometry.coordinates)
     .setHTML(propertyImage + '<div class="popup-body"><div class="popuptitle"><h3>' + feature.properties.name + '</h3></div>' +
       '<p><strong>' + propertyCategoryImage + '</strong></p>' +
-      '<p><strong>Feature:</strong> ' + feature.properties.category + '<br>' +
-      '<strong>Feature:</strong> ' + feature.properties.category + '<br>' +
-      '<strong>Feature:</strong> ' + feature.properties.category + '<br>' +
-      '<strong>Feature:</strong> ' + feature.properties.category + '<br>' +
-      '<strong>Feature:</strong> ' + feature.properties.category + '<br>' +
-      '<strong>Feature:</strong> ' + feature.properties.category + '<br>' +
-      '<strong>Feature:</strong> ' + feature.properties.category + '</p>' +
+      propertyFeaturesList +
       '<a href="http://www.chautauqualandbank.org/properties/' + feature.properties.permalink + '" target="_blank"><p class="orbitist-link">View Full Listing </p></a>' +
       '<div class="action-items"><div class="action-item"><a href="https://www.google.com/maps/dir/Current+Location/' + feature.geometry.coordinates[1] + ',' + feature.geometry.coordinates[0] + '" target="_blank"><span class="fa fa-car center-block"></span></a></div><div class="action-item"><a href="https://app.orbitist.com/print/' + feature.properties.point_id + '" target="_blank"><span class="fa fa-print center-block"></span></a></div></div></div>')
     .addTo(map);
