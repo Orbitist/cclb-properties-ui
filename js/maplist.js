@@ -29,12 +29,37 @@ function renderMapList() {
     }
     var propertyValue = numberWithCommas(feature.properties.property.TotalAssessedValue);
 
+    //build the propertySquareFootage
+    var propertySquareFootage = numberWithCommas(feature.properties.physical.SquareFootage);
+
+    //build the building style and condition
+    var propertyBuildingStyle = feature.properties.physical.BuildingStyle.toLowerCase();
+    var propertyCondition = feature.properties.physical.OverallCondition.toLowerCase();
+
+    //build bathroom statement
+    var propertyBathrooms = feature.properties.physical.NumberOfBaths + ' bathroom';
+    if (feature.properties.physical.NumberOfBaths > 1) {
+      propertyBathrooms = feature.properties.physical.NumberOfBaths + ' bathrooms';
+    }
+
+    //build bedroom statement
+    var propertyBedrooms = feature.properties.physical.NumberOfBedrooms + ' bedroom';
+    if (feature.properties.physical.NumberOfBedrooms > 1) {
+      propertyBedrooms = feature.properties.physical.NumberOfBedrooms + ' bedrooms';
+    }
+
+    //Build Year build statement
+    var propertyYearBuilt = 'in ' + feature.properties.property.StructureYearBuilt;
+    if (feature.properties.property.StructureYearBuilt == 0){
+      propertyYearBuilt = 'at an unknown time'
+    }
+
     // build the listItem
     var  listItem  = '<hr><div class="map-list-item" id="' + 'property' + i + '">' + propertyImage +
     '<p>' + propertyCategoryImage + '</p>' +
     '<p><strong>' + feature.properties.name + '</strong></p>' +
     '<p><strong>Assessed Value: </strong> $' + propertyValue + '</p>' +
-    '<p><strong>Feature: </strong> Test feature</p>' +
+    '<p>This ' + propertySquareFootage + ' square foot ' + propertyBuildingStyle + ' home was built ' + propertyYearBuilt + '. It has ' + propertyBedrooms + ' and ' + propertyBathrooms + '. Overall, the property is in ' + propertyCondition + ' condition.</p>' +
     '</div><script>document.getElementById("' + 'property' + i + '").addEventListener("click", function () {map.flyTo({center:[' + feature.geometry.coordinates + '],zoom: 18,bearing: 90 * (.5 - Math.random()),pitch: 60});});</script>';
 
     $('div.map-list').append(listItem);
