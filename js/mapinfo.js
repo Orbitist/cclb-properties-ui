@@ -4,11 +4,11 @@ var fadeLabel = startLabel - 1;
 var endLabel = startLabel + 2;
 
 // Set Url for map info API
-var mapInfoApi = 'https://app.orbitist.com/api/v1/map.json?mapid=' + mapid;
+var mapInfoApi = 'data/mapinfo.json';
 
 // Do things if in edit mode
 if (mode == 'edit'){
-  var mapInfoApi = 'https://app.orbitist.com/api/v1/map_edit.json?mapid=' + mapid;
+  var mapInfoApi = 'data/mapinfo.json';
 }
 
 // Is this a numbered map?

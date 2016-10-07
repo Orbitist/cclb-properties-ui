@@ -8,11 +8,11 @@ else {
 }
 
 // Set Url for points info API
-var pointsInfoApi = 'https://app.orbitist.com/api/v1/points/' + mapid + '.json';
+var pointsInfoApi = 'data/properties.geojson';
 
 // Do things if in edit mode
 if (mode == 'edit'){
-  var pointsInfoApi = 'https://app.orbitist.com/api/v1/points/edit/' + mapid + '.json';
+  var pointsInfoApi = 'data/properties.geojson';
 }
 
 
@@ -78,31 +78,24 @@ if (numberedPoints == "true") {
     });
     map.addLayer({
       "id": "points",
-      "type": "symbol",
+      "type": "circle",
       "source": "orbitistPoints",
-      "layout": {
-        "icon-image": "circle-15",
-        "icon-size": 2,
-        "icon-allow-overlap": true,
-        "icon-offset": [0, -5],
-        "icon-ignore-placement": true,
-        "text-field": textFieldCode,
-        "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-        "text-size": {
-          "stops": [
-            [fadeLabel, 0],
-            [startLabel, 8],
-            [endLabel, 16]
-          ]
+      'paint': {
+        // make circles larger as the user zooms from z12 to z22
+        'circle-radius': {
+          'base': 1.75,
+          'stops': [[12, 8], [22, 180]]
         },
-        "text-offset": [0, 0.5],
-        "text-anchor": "top",
-        "text-allow-overlap": true
-      },
-      "paint": {
-        "icon-opacity": 0,
-        "text-halo-width": 1,
-        "text-halo-color": "white"
+        // color circles by ethnicity, using data-driven styles
+        'circle-color': {
+          property: 'category',
+          type: 'categorical',
+          stops: [
+            ['Recently Sold Rehab Properties', '#fbb03b'],
+            ['Rehabs for Sale', '#223b53'],
+            ['Recently Demolished', '#e55e5e'],
+            ['Future Demolitions', '#3bb2d0']]
+        }
       }
     });
 
@@ -113,23 +106,6 @@ if (numberedPoints == "true") {
       map.fitBounds(bounds, { padding: '50' });
     }
 
-
-
-    // Add custom markers to map
-    for (var i = 0; i < orbitistPointsGeojsonCleaned.features.length; i++) {
-        var feature = orbitistPointsGeojsonCleaned.features[i];
-
-        // create an img element for the marker
-        var marker = document.createElement('img');
-        marker.src = feature.properties.point_marker_url;
-        marker.style.width = "30px";
-        marker.style.height = "30px";
-
-        // add marker to map
-        new mapboxgl.Marker(marker)
-            .setLngLat(feature.geometry.coordinates)
-            .addTo(map);
-    }
 
   });
 

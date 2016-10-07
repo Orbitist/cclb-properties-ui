@@ -1,0 +1,16 @@
+[{
+  "map_title":"Nature at Your Fingertips",
+  "map_image":"https://app.orbitist.com/sites/default/files/styles/map_info/public/map-images/Cell%20Phone%20Tour-RTPI.jpg?itok=fR-GNcqV",
+  "map_body":"<p>Welcome to the Roger Tory Peterson Institute's \"Nature at Your Fingertips\" winter trails cell phone tour!</p>\n",
+  "map_tiles":"https://{s}.tiles.mapbox.com/v4/orbitist.om67b48d/{z}/{x}/{y}@2x.jpg70?access_token=pk.eyJ1Ijoib3JiaXRpc3QiLCJhIjoiYnpUTnJBdyJ9.uxgaJ0R9ZNsCcEnPNfo2ag",
+  "map_css":[],
+  "map_google_analytics":"UA-12951766-3",
+  "map_mapbox_access_token":"pk.eyJ1Ijoib3JiaXRpc3QiLCJhIjoiYnpUTnJBdyJ9.uxgaJ0R9ZNsCcEnPNfo2ag",
+  "map_mapbox_style":"mapbox://styles/orbitist/ciqvf508a0003dikyblmyb56h",
+  "map_custom_mapbox_access_token":[],
+  "map_custom_mapbox_style":[],
+  "map_author_name":"rtpi","map_author_full_name":"The Roger Tory Peterson Institute",
+  "map_author_profile_image":"https://app.orbitist.com/sites/default/files/styles/my_maps_thumbnail/public/profile_images/RogerToryPeterson.jpg?itok=ehH2td-U",
+  "map_numbered_points":"false",
+  "map_start_label":[]
+}]
