@@ -129,6 +129,7 @@ if (numberedPoints == "true") {
 
             // When the checkbox changes, update the visibility of the layer.
             input.addEventListener('change', function(e) {
+              filterMapList();
                 map.setLayoutProperty(layerID, 'visibility',
                     e.target.checked ? 'visible' : 'none');
           });
