@@ -117,9 +117,14 @@ if (numberedPoints == "true") {
             input.checked = true;
             filterGroup.appendChild(input);
 
+            var keyMarker = null;
+            if (category == 'Recently Sold Rehab Properties'){keyMarker = '<img src="img/sold-rehab.png" />'}
+            if (category == 'Rehabs for Sale'){keyMarker = '<img src="img/for-sale.png" />'}
+            if (category == 'Recently Demolished'){keyMarker = '<img src="img/recently-demolished.png" />'}
+            if (category == 'Future Demolitions'){keyMarker = '<img src="img/future-demolitions.png" />'}
             var label = document.createElement('label');
             label.setAttribute('for', layerID);
-            label.textContent = category;
+            label.innerHTML = keyMarker + ' ' + category;
             filterGroup.appendChild(label);
 
             // When the checkbox changes, update the visibility of the layer.
