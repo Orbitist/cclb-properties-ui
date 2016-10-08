@@ -141,7 +141,7 @@ if (numberedPoints == "true") {
   });
 
 map.on('click', function (e) {
-  var features = map.queryRenderedFeatures(e.point, { layers: ['points'] });
+  var features = map.queryRenderedFeatures(e.point, { layers: ['Recently Sold Rehab Properties', 'Rehabs for Sale', 'Recently Demolished', 'Future Demolitions'] });
   if (!features.length) {
       return;
   }
@@ -188,7 +188,7 @@ map.on('click', function (e) {
 // Use the same approach as above to indicate that the symbols are clickable
 // by changing the cursor style to 'pointer'.
 map.on('mousemove', function (e) {
-  var features = map.queryRenderedFeatures(e.point, { layers: ['points'] });
+  var features = map.queryRenderedFeatures(e.point, { layers: ['Recently Sold Rehab Properties', 'Rehabs for Sale', 'Recently Demolished', 'Future Demolitions'] });
   map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
 });
 
