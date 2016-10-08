@@ -22,7 +22,7 @@
     background-color: #eee;
     display: block;
     cursor: pointer;
-    padding: 3px;
+    padding: 1px 10px;
 }
 
 .filter-group input[type=checkbox] + label {
@@ -30,7 +30,9 @@
     text-transform: capitalize;
 }
 
-.filter-group input[type=checkbox] + label:hover,
+.filter-group input[type=checkbox] + label:hover {
+  background-color: #eee;
+}
 .filter-group input[type=checkbox]:checked + label {
     background-color: white;
 }
@@ -38,4 +40,8 @@
 .filter-group input[type=checkbox]:checked + label:before {
     content: '✔';
     margin-right: 5px;
+}
+
+.filter-group label:hover {
+  background-color: #eee !important;
 }
