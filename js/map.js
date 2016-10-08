@@ -61,6 +61,8 @@ else {
   scrollZoomSetting = true;
 }
 
+var filterGroup = document.getElementById('filter-group');
+
 var map = new mapboxgl.Map({
     container: 'map',
     pitch: 0,
@@ -78,28 +80,55 @@ if (numberedPoints == "true") {
       type: "geojson",
       data: orbitistPointsGeojsonCleaned
     });
-    map.addLayer({
-      "id": "points",
-      "type": "circle",
-      "source": "orbitistPoints",
-      'paint': {
-        // make circles larger as the user zooms from z12 to z22
-        'circle-radius': {
-          'base': 1.75,
-          'stops': [[12, 8], [22, 180]]
-        },
-        // color circles by ethnicity, using data-driven styles
-        'circle-color': {
-          property: 'category',
-          type: 'categorical',
-          stops: [
-            ['Recently Sold Rehab Properties', '#fbb03b'],
-            ['Rehabs for Sale', '#223b53'],
-            ['Recently Demolished', '#e55e5e'],
-            ['Future Demolitions', '#3bb2d0']]
+
+    orbitistPointsGeojsonCleaned.features.forEach(function(feature) {
+      var category = feature.properties['category'];
+      var layerID = category;
+
+      // Add a layer for this symbol type if it hasn't been added already.
+      if (!map.getLayer(layerID)) {
+        map.addLayer({
+          "id": layerID,
+          "type": "circle",
+          "source": "orbitistPoints",
+          'paint': {
+            // make circles larger as the user zooms from z12 to z22
+            'circle-radius': {
+              'base': 1.75,
+              'stops': [[12, 8], [22, 180]]
+            },
+            // color circles by ethnicity, using data-driven styles
+            'circle-color': {
+              property: 'category',
+              type: 'categorical',
+              stops: [
+                ['Recently Sold Rehab Properties', '#fbb03b'],
+                ['Rehabs for Sale', '#223b53'],
+                ['Recently Demolished', '#e55e5e'],
+                ['Future Demolitions', '#3bb2d0']]
+            }
+          },
+          "filter": ["==", "category", category]
+        });
+        // Add checkbox and label elements for the layer.
+            var input = document.createElement('input');
+            input.type = 'checkbox';
+            input.id = layerID;
+            input.checked = true;
+            filterGroup.appendChild(input);
+
+            var label = document.createElement('label');
+            label.setAttribute('for', layerID);
+            label.textContent = category;
+            filterGroup.appendChild(label);
+
+            // When the checkbox changes, update the visibility of the layer.
+            input.addEventListener('change', function(e) {
+                map.setLayoutProperty(layerID, 'visibility',
+                    e.target.checked ? 'visible' : 'none');
+          });
         }
-      }
-    });
+      });
 
 
     // Check to see if there was a has on load
