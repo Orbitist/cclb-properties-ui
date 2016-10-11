@@ -174,11 +174,27 @@ map.on('click', function (e) {
     propertyImage = '<img src="' + feature.properties.image + '" class="popup-top-image">';
   }
 
+  // build the propertyValue
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+  var propertyValue = numberWithCommas(feature.properties.TotalAssessedValue);
+
+  //build the propertySquareFootage
+  var propertySquareFootage = numberWithCommas(feature.properties.SquareFootage);
+
   var popup = new mapboxgl.Popup({anchor: 'none'})
     .setLngLat(feature.geometry.coordinates)
     .setHTML(propertyImage + '<div class="popup-body"><div class="popuptitle"><h3>' + feature.properties.name + '</h3></div>' +
       '<p><strong>' + propertyCategoryImage + '</strong></p>' +
-      '<p>' + feature.properties.property.TotalAssessedValue + '</p>' +
+      '<p><strong>Assessed Value:</strong> $' + propertyValue + '</p>' +
+      '<p><strong>Property size:</strong> ' + propertySquareFootage + ' Square Feet</p>' +
+      '<p><strong>Year built:</strong> ' + feature.properties.YearBuilt + '</p>' +
+      '<p><strong>Style:</strong> ' + feature.properties.BuildingStyle + '</p>' +
+      '<p><strong>Condition:</strong> ' + feature.properties.OverallCondition + '</p>' +
+      '<p><strong>Lot size:</strong> ' + feature.properties.LotSize + '</p>' +
+      '<p><strong>Bedrooms:</strong> ' + feature.properties.NumberOfBedrooms + '</p>' +
+      '<p><strong>Bathrooms:</strong> ' + feature.properties.NumberOfBaths + '</p>' +
       '<a href="http://www.chautauqualandbank.org/properties/' + feature.properties.permalink + '" target="_blank"><p class="orbitist-link">View Full Listing </p></a>')
     .addTo(map);
   if (features.length) {
