@@ -8,11 +8,11 @@ else {
 }
 
 // Set Url for points info API
-var pointsInfoApi = 'http://chautauqualandbank.org/api';
+var pointsInfoApi = 'http://www.chautauqualandbank.org/api';
 
 // Do things if in edit mode
 if (mode == 'edit'){
-  var pointsInfoApi = 'http://chautauqualandbank.org/api';
+  var pointsInfoApi = 'http://www.chautauqualandbank.org/api';
 }
 
 
