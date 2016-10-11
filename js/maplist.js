@@ -61,30 +61,30 @@ function renderMapList(category) {
     function numberWithCommas(x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
-    var propertyValue = numberWithCommas(feature.properties.property.TotalAssessedValue);
+    var propertyValue = numberWithCommas(feature.properties.TotalAssessedValue);
 
     //build the propertySquareFootage
-    var propertySquareFootage = numberWithCommas(feature.properties.physical.SquareFootage);
+    var propertySquareFootage = numberWithCommas(feature.properties.SquareFootage);
 
     //build the building style and condition
-    var propertyBuildingStyle = feature.properties.physical.BuildingStyle.toLowerCase();
-    var propertyCondition = feature.properties.physical.OverallCondition.toLowerCase();
+    var propertyBuildingStyle = feature.properties.BuildingStyle.toLowerCase();
+    var propertyCondition = feature.properties.OverallCondition.toLowerCase();
 
     //build bathroom statement
-    var propertyBathrooms = feature.properties.physical.NumberOfBaths + ' bathroom';
-    if (feature.properties.physical.NumberOfBaths > 1) {
-      propertyBathrooms = feature.properties.physical.NumberOfBaths + ' bathrooms';
+    var propertyBathrooms = feature.properties.NumberOfBaths + ' bathroom';
+    if (feature.properties.NumberOfBaths > 1) {
+      propertyBathrooms = feature.properties.NumberOfBaths + ' bathrooms';
     }
 
     //build bedroom statement
-    var propertyBedrooms = feature.properties.physical.NumberOfBedrooms + ' bedroom';
-    if (feature.properties.physical.NumberOfBedrooms > 1) {
-      propertyBedrooms = feature.properties.physical.NumberOfBedrooms + ' bedrooms';
+    var propertyBedrooms = feature.properties.NumberOfBedrooms + ' bedroom';
+    if (feature.properties.NumberOfBedrooms > 1) {
+      propertyBedrooms = feature.properties.NumberOfBedrooms + ' bedrooms';
     }
 
     //Build Year build statement
-    var propertyYearBuilt = 'in ' + feature.properties.property.StructureYearBuilt;
-    if (feature.properties.property.StructureYearBuilt == 0){
+    var propertyYearBuilt = 'in ' + feature.properties.StructureYearBuilt;
+    if (feature.properties.StructureYearBuilt == 0){
       propertyYearBuilt = 'at an unknown time'
     }
 

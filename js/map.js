@@ -8,11 +8,11 @@ else {
 }
 
 // Set Url for points info API
-var pointsInfoApi = 'data/properties.geojson';
+var pointsInfoApi = 'http://chautauqualandbank.org/api';
 
 // Do things if in edit mode
 if (mode == 'edit'){
-  var pointsInfoApi = 'data/properties.geojson';
+  var pointsInfoApi = 'http://chautauqualandbank.org/api';
 }
 
 
