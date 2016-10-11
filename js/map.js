@@ -186,15 +186,15 @@ map.on('click', function (e) {
   var popup = new mapboxgl.Popup({anchor: 'none'})
     .setLngLat(feature.geometry.coordinates)
     .setHTML(propertyImage + '<div class="popup-body"><div class="popuptitle"><h3>' + feature.properties.name + '</h3></div>' +
-      '<p><strong>' + propertyCategoryImage + '</strong></p>' +
-      '<p><strong>Assessed Value:</strong> $' + propertyValue + '</p>' +
-      '<p><strong>Property size:</strong> ' + propertySquareFootage + ' Square Feet</p>' +
-      '<p><strong>Year built:</strong> ' + feature.properties.YearBuilt + '</p>' +
-      '<p><strong>Style:</strong> ' + feature.properties.BuildingStyle + '</p>' +
-      '<p><strong>Condition:</strong> ' + feature.properties.OverallCondition + '</p>' +
-      '<p><strong>Lot size:</strong> ' + feature.properties.LotSize + '</p>' +
-      '<p><strong>Bedrooms:</strong> ' + feature.properties.NumberOfBedrooms + '</p>' +
-      '<p><strong>Bathrooms:</strong> ' + feature.properties.NumberOfBaths + '</p>' +
+      '<p><strong>' + propertyCategoryImage + '</strong><br>' +
+      '<strong>Assessed Value:</strong> $' + propertyValue + '<br>' +
+      '<strong>Property size:</strong> ' + propertySquareFootage + ' Square Feet<br>' +
+      '<strong>Year built:</strong> ' + feature.properties.YearBuilt + '<br>' +
+      '<strong>Style:</strong> ' + feature.properties.BuildingStyle + '<br>' +
+      '<strong>Condition:</strong> ' + feature.properties.OverallCondition + '<br>' +
+      '<strong>Lot size:</strong> ' + feature.properties.LotSize + '<br>' +
+      '<strong>Bedrooms:</strong> ' + feature.properties.NumberOfBedrooms + '<br>' +
+      '<strong>Bathrooms:</strong> ' + feature.properties.NumberOfBaths + '</p>' +
       '<a href="http://www.chautauqualandbank.org/properties/' + feature.properties.permalink + '" target="_blank"><p class="orbitist-link">View Full Listing </p></a>')
     .addTo(map);
   if (features.length) {
