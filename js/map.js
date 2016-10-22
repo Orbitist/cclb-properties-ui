@@ -195,10 +195,6 @@ map.on('click', function (e) {
       '<strong>Bathrooms:</strong> ' + feature.properties.NumberOfBaths + '</p>' +
       '<a href="http://www.chautauqualandbank.org/properties/' + feature.properties.permalink + '" target="_blank"><p class="orbitist-link">View Full Listing </p></a>')
     .addTo(map);
-  if (features.length) {
-    // Get coordinates from the symbol and center the map on those coordinates
-    map.flyTo({center: features[0].geometry.coordinates});
-  }
   // Do things if in edit mode
   if (mode == 'edit'){
     $('div.popuptitle h3').append(' <a target="_parent" href="/node/' + feature.properties.point_id + '/edit?destination=edit-map/' + mapid + '"><span class="edit-button"><i class="fa fa-pencil"></i> Edit</span></a>');
