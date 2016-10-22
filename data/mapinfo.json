@@ -6,7 +6,7 @@
   "map_css":[],
   "map_google_analytics":"UA-12951766-3",
   "map_mapbox_access_token":"pk.eyJ1Ijoib3JiaXRpc3QiLCJhIjoiYnpUTnJBdyJ9.uxgaJ0R9ZNsCcEnPNfo2ag",
-  "map_mapbox_style":"mapbox://styles/orbitist/ciqvf508a0003dikyblmyb56h",
+  "map_mapbox_style":"https://tiles.orbitist.com/designs/orbitistDawn.json",
   "map_custom_mapbox_access_token":[],
   "map_custom_mapbox_style":[],
   "map_author_name":"chautauqualandbank",

@@ -51,7 +51,6 @@ $(document).ready(
               map.setStyle(data[i].map_custom_mapbox_style);
             }
             else {
-              mapboxgl.accessToken = data[i].map_mapbox_access_token;
               map.setStyle(data[i].map_mapbox_style);
             }
             //Google Analytics

@@ -92,12 +92,10 @@ if (numberedPoints == "true") {
           "type": "circle",
           "source": "orbitistPoints",
           'paint': {
-            // make circles larger as the user zooms from z12 to z22
             'circle-radius': {
               'base': 1.75,
               'stops': [[12, 8], [22, 180]]
             },
-            // color circles by ethnicity, using data-driven styles
             'circle-color': {
               property: 'category',
               type: 'categorical',
