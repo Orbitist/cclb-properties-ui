@@ -213,7 +213,7 @@ map.addControl(new mapboxgl.Navigation({position: 'top-right'}));
 
 // If in embed mode, add fullscreen button
 if (mode == 'embed'){
-  $('body').append('<a target="_blank" href="https://app.orbitist.com/map/' + mapid + '"><div class="map-fullscreen-toggle control"><i class="fa fa-arrows-alt"></i></div></a>');
+  $('body').append('<a target="_blank" href="http://labs.orbitist.com/cclb-properties-ui/"><div class="map-fullscreen-toggle control"><i class="fa fa-arrows-alt"></i></div></a>');
 }
 
 // Geolocate map
