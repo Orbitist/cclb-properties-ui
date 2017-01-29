@@ -63,6 +63,7 @@ else {
 
 var filterGroup = document.getElementById('filter-group');
 
+mapboxgl.accessToken = 'pk.eyJ1Ijoib3JiaXRpc3QiLCJhIjoiYnpUTnJBdyJ9.uxgaJ0R9ZNsCcEnPNfo2ag';
 var map = new mapboxgl.Map({
     container: 'map',
     pitch: 0,
