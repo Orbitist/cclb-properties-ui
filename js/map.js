@@ -135,7 +135,6 @@ if (numberedPoints == "true") {
         }
       });
 
-
     // Check to see if there was a has on load
     if(hasHash == true) {
     } else {
